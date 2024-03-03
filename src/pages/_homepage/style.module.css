@@ -1,0 +1,26 @@
+:where(.rootX) {
+  display: grid;
+  grid-template-columns:
+    [full-bleed-start] minmax(var(--gsm), 1fr)
+    [content-start] min(100% - (var(--gsm) * 2), 90em)
+    [content-end]
+    minmax(var(--gsm), 1fr) [full-bleed-end];
+  position: relative;
+}
+
+.rootX > * {
+  grid-column: content;
+}
+
+.heroX {
+  &::before {
+    grid-column: full-bleed;
+    grid-row: 1/2;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--colorNeutralBackground1);
+    z-index: -1;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,71 @@
+:where(.rootX) {
+  display: grid;
+  align-items: start;
+  /* prettier-ignore */
+  grid-template:
+    "   .        .          .        .               .            " var(--gsm)
+    "   .        .          .        .             image          " var(--gs5xl)
+    " title    title      title    title           image          " auto
+    "   .        .          .        .             image          " var(--gsm)
+    "subtitle subtitle   subtitle subtitle         image          " auto
+    "   .        .          .        .             image          " var(--gsxl)
+    " link1      .        link2      .             image          " minmax(0, 1fr)
+    "   .        .          .        .              .             " var(--gsm)
+    / auto    var(--gsxl) auto minmax(0, 1fr) minmax(240px, 380px);
+
+  & h1 {
+    grid-area: title;
+    white-space: break-spaces;
+    color: var(--colorNeutralForeground3);
+
+    & em {
+      font-style: normal;
+      font-size: var(--spaceFluidXXXL);
+      color: var(--colorNeutralForeground1);
+    }
+  }
+
+  & p {
+    grid-area: subtitle;
+    font-weight: lighter;
+  }
+
+  & a:nth-of-type(1) {
+    grid-area: link1;
+    inline-size: max-content;
+  }
+
+  & a:nth-of-type(2) {
+    grid-area: link2;
+    inline-size: max-content;
+  }
+
+  & img {
+    grid-area: image;
+    aspect-ratio: 1;
+    inline-size: 100%;
+    block-size: unset;
+  }
+}
+
+@media screen and (max-width: 50em) {
+  .rootX {
+    /* prettier-ignore */
+    grid-template:
+    "    .   " var(--gsm)
+    "  image " auto
+    "  title " auto
+    "   .    " var(--gss)
+    "subtitle" auto
+    "   .    " var(--gss)
+    "  link1 " auto
+    "   .    " var(--gsxs)
+    "  link2 " auto
+    "   .    " var(--gsm)
+    / auto;
+
+    & a {
+      inline-size: 100%;
+    }
+  }
+}

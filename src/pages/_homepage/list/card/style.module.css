@@ -1,0 +1,82 @@
+:where(.rootX) {
+  background: var(--colorNeutralBackground1);
+  color: var(--colorNeutralForeground1);
+  border-radius: var(--cornerRadiusS);
+  box-shadow: var(--shadow4);
+  overflow: hidden;
+  position: relative;
+
+  display: grid;
+  align-content: start;
+  /* prettier-ignore */
+  grid-template:
+    ".                 .           .            .            ." var(--gsm)
+    ".               title         .        version          ." auto
+    ".                 .           .        version          ." var(--gs3xs)
+    ".               author        .        version          ." auto
+    ".            description description  description       ." auto
+    ".                 .           .            .            ." minmax(0, 1fr)
+    ".             keywords    keywords     keywords         ." auto
+    ".                 .           .            .            ." var(--gsm)
+    / var(--gsm) minmax(0, 1fr) var(--gsxs)   auto  var(--gsm);
+
+  & h4 {
+    grid-area: title;
+
+    & a {
+      text-decoration: none;
+      color: inherit;
+
+      &::before {
+        grid-row: 1/5;
+        grid-column: 1/-1;
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: var(--cornerRadiusS);
+      }
+    }
+  }
+}
+
+.versionX {
+  grid-area: version;
+  color: var(--colorNeutralForeground3);
+
+  & h5 {
+    position: fixed;
+    inset-inline-start: -100lvi;
+  }
+}
+
+.authorX {
+  grid-area: author;
+  color: var(--colorNeutralForeground3);
+
+  & h5 {
+    position: fixed;
+    inset-inline-start: -100lvi;
+  }
+}
+
+.descriptionX {
+  color: var(--colorNeutralForeground3);
+  grid-area: description;
+  padding-block-start: var(--spaceFluidXS);
+
+  &:empty {
+    display: none;
+  }
+}
+
+.keywordsX {
+  grid-area: keywords;
+  padding-block-start: var(--spaceFluidXS);
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--spaceFluidXS);
+
+  &:empty {
+    display: none;
+  }
+}

@@ -1,0 +1,12 @@
+:where(.rootX) {
+  background-color: var(--colorNeutralBackground1);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  border-block-end: 1px solid var(--colorNeutralStroke2);
+
+  & a {
+    padding: var(--spaceFluidXS);
+    color: var(--colorNeutralForeground2);
+    text-decoration: none;
+  }
+}

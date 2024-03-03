@@ -1,0 +1,55 @@
+:where(.rootX) {
+  display: grid;
+  /* prettier-ignore */
+  grid-template:
+    "       .       " var(--gsm)
+    "     title     " auto
+    "      list     " auto
+    "       .       " var(--gsm)
+    / minmax(0, 1fr);
+
+  & h2 {
+    grid-area: title;
+    padding-block-start: var(--spaceFluidXXL);
+  }
+
+  & > ol {
+    grid-area: list;
+    display: grid;
+
+    & > li {
+      padding-block: var(--spaceFluidXS) var(--spaceFluidM);
+      border-block-end: 1px solid var(--colorNeutralStroke3);
+    }
+  }
+}
+
+.nestedX {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16em, 1fr));
+  gap: var(--spaceFluidS);
+
+  & > li {
+    block-size: 100%;
+
+    & > * {
+      block-size: 100%;
+    }
+  }
+}
+
+.letterX {
+  background-color: var(--colorNeutralBackground3);
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 1;
+  text-transform: uppercase;
+
+  & a {
+    display: grid;
+    padding-block: var(--spaceFluidXS);
+    color: inherit;
+    text-decoration: none;
+  }
+}
