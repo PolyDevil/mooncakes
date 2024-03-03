@@ -8,6 +8,9 @@
 node_modules
 *.local
 
+# Env
+.node-version
+
 # Cache
 .cache
 .mf
@@ -39,3 +42,8 @@ lerna-debug.log*
 # Yarn
 .yarn/*
 !.yarn/releases
+
+# Cloudflare
+functions/**/*.js
+
+
